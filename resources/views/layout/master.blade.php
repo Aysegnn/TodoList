@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-   
+    <title>TODO APP</title>
 
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
