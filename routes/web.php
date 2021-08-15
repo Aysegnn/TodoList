@@ -19,3 +19,5 @@ Route::get('signout', [UserAuthController::class, 'signOut'])->name('signout');
 
 Route::get('/todo',[TodoController::class,'index'])->name('todo.index');
 Route::post('/todo/store',[TodoController::class,'store'])->name('todo.store');
+Route::get('/complete-task',[TodoController::class,'complete'])->name('task.complete');
+Route::get('/todo/show',[TodoController::class,'show'])->name('todo.show');

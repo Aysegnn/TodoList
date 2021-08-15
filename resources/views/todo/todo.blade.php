@@ -45,10 +45,29 @@
         @endif
     </div>
     <div class="input-group-append">
-        <a class="btn btn-warning" href="">View Completed Tasks</a>   
+        <a class="btn btn-warning"  href="{{route('todo.show')}}">View Completed Tasks</a>   
      </div>
     </div>
 </div>
+
+@section('js')
+<script>
+
+    $(function() {
+
+        $('.complete').click(function() {
+            id = $(this)[0].getAttribute('task-id');
+           console.log(id);
+            $.get("{{route('task.complete')}}", {id:id},  function(data, status) {
+                console.log(data);
+            });
+            location.reload();
+        })
+    })
+  
+</script>
+
+@endsection
 
 @endsection
 

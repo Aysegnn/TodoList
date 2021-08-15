@@ -18,22 +18,13 @@ class TodoController extends Controller
         return view('todo.todo',compact('todos'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    public function complete(Request $request){
+        $id = $request->id;
+        Todo::where('id', $id)->update(['completed'=> '1']);
+        return redirect()->route('todo.show');
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+      }
+ 
     public function store(Request $request)
     {
         $todo=Todo::create([
@@ -44,23 +35,13 @@ class TodoController extends Controller
         return redirect('/todo');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Todo  $todo
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Todo $todo)
+    public function show()
     {
-        //
+        $todos=Todo::where('completed','1')->get();
+        return view('todo.completed_tasks',compact('todos'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Todo  $todo
-     * @return \Illuminate\Http\Response
-     */
+    
     public function edit(Todo $todo)
     {
         //
