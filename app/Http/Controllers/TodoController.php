@@ -14,7 +14,8 @@ class TodoController extends Controller
      */
     public function index()
     {
-        return view('todo.todo');
+        $todos=Todo::where('completed','0')->get();
+        return view('todo.todo',compact('todos'));
     }
 
     /**
@@ -35,7 +36,12 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $todo=Todo::create([
+            'name'=>$request->todo,
+            'completed'=>0,
+        ]);
+
+        return redirect('/todo');
     }
 
     /**
