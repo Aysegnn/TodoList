@@ -2,8 +2,8 @@
 @section('content')
 <div class="container mt-5">
  
-  <div class="card">
-    <div class="card-body">
+  <div class="card mt-5">
+    <div class="card-body mt-5">
     <h2>Completed Tasks</h2>
     <div>
     <a class="btn btn-sm btn-warning float-right" href="{{route('todo.index')}}">Geri Dön</a>  
