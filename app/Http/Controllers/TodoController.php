@@ -47,26 +47,26 @@ class TodoController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Todo  $todo
-     * @return \Illuminate\Http\Response
-     */
+  
     public function update(Request $request, Todo $todo)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Todo  $todo
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Todo $todo)
+  
+    public function destroy($id)
     {
-        //
+        Todo::where('id',$id)->delete();
+    
+        return redirect()->route('todo.show')
+                        ->with('success','Task deleted successfully');
     }
+
+    
+    public function restore(Request $request){
+        $id = $request->id;
+        Todo::where('id', $id)->update(['completed'=> '0']);
+        return redirect()->route('todo.show');
+
+      }
 }

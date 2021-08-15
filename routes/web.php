@@ -21,3 +21,6 @@ Route::get('/todo',[TodoController::class,'index'])->name('todo.index');
 Route::post('/todo/store',[TodoController::class,'store'])->name('todo.store');
 Route::get('/complete-task',[TodoController::class,'complete'])->name('task.complete');
 Route::get('/todo/show',[TodoController::class,'show'])->name('todo.show');
+Route::get('/todo/restore/{id}',[TodoController::class,'restore'])->name('todo.restore');
+Route::get('/todo/delete/{id}',[TodoController::class,'destroy'])->name('todo.destroy');
+Route::get('/restore-task',[TodoController::class,'restore'])->name('task.restore');

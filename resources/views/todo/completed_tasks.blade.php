@@ -27,7 +27,8 @@
 
             </td>
             <td>
-                
+            <a  task-id="{{$todo->id}}" class=" restore btn btn-sm btn-warning float-right">Restore</a>  
+                <a class="btn btn-sm btn-danger float-right" href="{{route('todo.destroy',$todo->id)}}">Delete</a>  
             </td>
             </tr>
     @endforeach
@@ -38,5 +39,24 @@
     </div>
   </div>
 </div>
+
+
+@section('js')
+<script>
+
+    $(function() {
+        $('.restore').click(function() {
+            id = $(this)[0].getAttribute('task-id');
+           console.log(id);
+            $.get("{{route('task.restore')}}", {id:id},  function(data, status) {
+                console.log(data);
+            });
+            location.reload();
+        })
+    })
+
+</script>
+
+@endsection
 
 @endsection
