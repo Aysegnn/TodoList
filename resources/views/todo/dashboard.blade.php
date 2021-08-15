@@ -12,8 +12,8 @@
             <h1 class=" text-center w-100 h-100" >Welcome to My Todo App</h1><br><br>
 
             <div class=" text-center w-100 h-100 justify-content-center align-items-center">
-                <a class="btn btn-lg" href="" style="color:white">Login</a>
-                <a class="btn btn-lg" href="" style="color:white">Register</a>  
+                <a class="btn btn-lg" href="{{route('login')}}" style="color:white">Login</a>
+                <a class="btn btn-lg" href="{{route('register')}}" style="color:white">Register</a>  
             </div>
 
         </div>
